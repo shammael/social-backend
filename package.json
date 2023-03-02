@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsc",
+    "start": "node ./build/index.js"
+  },
   "devDependencies": {
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
