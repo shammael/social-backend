@@ -1,0 +1,12 @@
+scalar Email
+
+type User {
+  firstName: String!
+  lastName: String!
+  email: Email!
+  picturePath: String
+  location: String
+  occupation: String
+  online: Boolean!
+  _id: ID!
+}

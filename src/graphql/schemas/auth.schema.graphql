@@ -1,0 +1,25 @@
+scalar Email
+scalar Token
+
+input loginInput {
+  email: Email!
+  password: String!
+}
+
+type LoginData {
+  user: User!
+  token: Token!
+}
+
+type Logout {
+  message: String
+}
+
+union LoginResponse = LoginData | BadRequestError | InternalServerError
+
+union LogoutResponse = Logout | ForbiddenError | InternalServerError
+
+type Mutation {
+  login(input: loginInput!): LoginResponse!
+  logout(id: ID!): LogoutResponse!
+}
