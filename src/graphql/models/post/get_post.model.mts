@@ -1,7 +1,11 @@
 import IPost from "../../../interfaces/post";
 import { PostModel } from "../../../services/models";
-import ErrorMessage from "../../generated/error_message.types";
-import { ErrorName, InternalServerError, Post } from "../../generated/types";
+import ErrorMessage from "../../generated/error_message.types.mjs";
+import {
+  ErrorName,
+  InternalServerError,
+  Post,
+} from "../../generated/types.mjs";
 
 interface IRequest extends Partial<Pick<IPost, "_id" | "status" | "level">> {}
 

@@ -1,7 +1,12 @@
 import { rule } from "graphql-shield";
-import { GraphQLError } from "graphql/error";
 import ExpressContext from "../../interfaces/context";
-import token from "../../utils/Token";
+import token from "../../utils/Token/index.mjs";
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+// import { GraphQLError } from "graphql/error"; // cjs
+// Interopability between commonjs with esm because GraphqlError is cjs
+const { GraphQLError } = require("graphql/error");
 
 const isAuthenticated = rule({ cache: "contextual" })(
   async (parent, args, ctx: ExpressContext, info) => {

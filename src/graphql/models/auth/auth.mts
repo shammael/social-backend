@@ -1,7 +1,7 @@
 import { IUser } from "../../../interfaces";
 import UserModel from "../../../services/models/user.schema";
-import ErrorMessage from "../../generated/error_message.types";
-import { ErrorName, InternalServerError } from "../../generated/types";
+import ErrorMessage from "../../generated/error_message.types.mjs";
+import { ErrorName, InternalServerError } from "../../generated/types.mjs";
 
 interface IRequestValue
   extends Partial<Pick<IUser, "active" | "online" | "_id">> {

@@ -6,9 +6,9 @@ import {
   RequireFields,
   Resolver,
   ResolverTypeWrapper,
-} from "../../generated/types";
-import getPostModel from "../../models/post/get_post.model";
-import checkIDModel from "../../models/utils/checkID";
+} from "../../generated/types.mjs";
+import getPostModel from "../../models/post/get_post.model.mjs";
+import checkIDModel from "../../models/utils/checkID.mjs";
 
 const getPostController: Resolver<
   ResolverTypeWrapper<BadRequestError | Post>,

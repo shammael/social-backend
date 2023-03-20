@@ -1,2 +1,2 @@
-export { default as getPosts } from "./get_posts.model";
-export { default as toggleLikePostModel } from "./toggle_like_post.model";
+export { default as getPosts } from "./get_posts.model.mjs";
+export { default as toggleLikePostModel } from "./toggle_like_post.model.mjs";

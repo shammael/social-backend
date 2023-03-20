@@ -4,6 +4,7 @@ import {
   GraphQLScalarTypeConfig,
 } from "graphql";
 import ExpressContext from "../../interfaces/context";
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {

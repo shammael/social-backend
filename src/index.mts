@@ -1,21 +1,20 @@
-import express, { Request } from "express";
+import express, { json, Request } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import dotenv from "dotenv";
-import connect from "./utils/db/index";
+import connect from "./utils/db/index.mjs";
 import cookieParser from "cookie-parser";
 import { graphqlHTTP } from "express-graphql";
 import { loadFilesSync } from "@graphql-tools/load-files";
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import emailScalar from "./graphql/scalars/email.scalar";
-import tokenScalar from "./graphql/scalars/token.scalar";
-import graphqlExpressPlaground from "graphql-playground-middleware-express";
+import emailScalar from "./graphql/scalars/email.scalar.mjs";
+import tokenScalar from "./graphql/scalars/token.scalar.mjs";
 import { applyMiddleware } from "graphql-middleware";
 import { shield } from "graphql-shield";
 import { mergeTypeDefs, mergeResolvers } from "@graphql-tools/merge";
-import isAuthenticated from "./graphql/middlewares/auth.middleware";
-import dateScalar from "./graphql/scalars/date.scalar";
+import isAuthenticated from "./graphql/middlewares/auth.middleware.mjs";
+import dateScalar from "./graphql/scalars/date.scalar.mjs";
 /*
   The fact that we use ES Module, __dirname and __filename doesn't exist. Only exist with comonjs
 */
@@ -72,8 +71,6 @@ app.use(
     };
   })
 );
-
-app.use("/playground", graphqlExpressPlaground({ endpoint: "/graphql" }));
 
 const PORT = process.env.PORT || 3001;
 

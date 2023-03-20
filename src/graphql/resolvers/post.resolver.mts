@@ -3,7 +3,7 @@ import {
   getPostController,
   toggleLikePostController,
 } from "../controllers/post";
-import { Resolvers } from "../generated/types.js";
+import { Resolvers } from "../generated/types.mjs";
 
 const postResolvers: Resolvers = {
   Query: {

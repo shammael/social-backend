@@ -6,10 +6,10 @@ import {
   RequireFields,
   Resolver,
   ResolverTypeWrapper,
-} from "../../generated/types";
-import getUserModel from "../../models/user/getUserModel";
-import token from "../../../utils/Token";
-import authModel from "../../models/auth/auth";
+} from "../../generated/types.mjs";
+import getUserModel from "../../models/user/getUserModel.mjs";
+import token from "../../../utils/Token/index.mjs";
+import authModel from "../../models/auth/auth.mjs";
 import ExpressContext from "../../../interfaces/context";
 
 const loginController: Resolver<

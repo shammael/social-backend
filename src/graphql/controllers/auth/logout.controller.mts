@@ -6,8 +6,8 @@ import {
   RequireFields,
   Resolver,
   ResolverTypeWrapper,
-} from "../../generated/types";
-import authModel from "../../models/auth/auth";
+} from "../../generated/types.mjs";
+import authModel from "../../models/auth/auth.mjs";
 
 const logoutController: Resolver<
   ResolverTypeWrapper<LogoutResponse>,
