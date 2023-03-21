@@ -50,7 +50,6 @@ app.use(express.json({ limit: "30mb" }));
 app.use(morgan("common"));
 // app.use(cookieParser());
 
-app.use(cors());
 // app.use(
 //   "/assets",
 //   express.static(path.resolve(__dirname, "", "/public/assets"))
@@ -62,6 +61,11 @@ app.use(cors());
 
 app.use(
   "/graphql",
+  app.use(
+    cors({
+      origin: "http://localhost:5173",
+    })
+  ),
   cookieParser(),
   graphqlHTTP((req, res) => {
     return {
