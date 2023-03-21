@@ -59,13 +59,13 @@ app.use(morgan("common"));
 
 // app.use(errorMiddleware);
 
+cors({
+  origin: ["http://localhost:5173"],
+});
+
 app.use(
   "/graphql",
-  app.use(
-    cors({
-      origin: "http://localhost:5173",
-    })
-  ),
+  app.use(),
   cookieParser(),
   graphqlHTTP((req, res) => {
     return {
