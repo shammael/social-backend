@@ -1,4 +1,4 @@
-import ExpressContext from "../../../interfaces/context";
+import ExpressContext from "../../../interfaces/context.js";
 import {
   ErrorName,
   LogoutResponse,
@@ -6,8 +6,8 @@ import {
   RequireFields,
   Resolver,
   ResolverTypeWrapper,
-} from "../../generated/types.mjs";
-import authModel from "../../models/auth/auth.mjs";
+} from "../../generated/types.js";
+import authModel from "../../models/auth/auth.js";
 
 const logoutController: Resolver<
   ResolverTypeWrapper<LogoutResponse>,

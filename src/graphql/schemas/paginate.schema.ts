@@ -1,3 +1,5 @@
+const paginateSchema = `#graphql 
+
 interface Paginate {
   totalDocs: Int!
   limit: Int!
@@ -10,3 +12,8 @@ interface Paginate {
   nextPage: Int
   pagingCounter: Int!
 }
+
+
+`;
+
+export default paginateSchema;

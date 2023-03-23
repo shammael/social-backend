@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { ForbidenError } from "../../utils/errors";
-import token from "../../utils/Token/index.mjs";
+import { ForbidenError } from "../../utils/errors/index.js";
+import token from "../../utils/Token/index.js";
 
 const verifyTokenMiddleware = (
   req: Request & { userID?: string },

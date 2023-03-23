@@ -2,9 +2,9 @@ import {
   ErrorName,
   InternalServerError,
   PostList,
-} from "../../generated/types.mjs";
-import PostModel from "../../../services/models/post.schema";
-import ErrorMessage from "../../generated/error_message.types.mjs";
+} from "../../generated/types.js";
+import PostModel from "../../../services/models/post.schema.js";
+import ErrorMessage from "../../generated/error_message.types.js";
 
 interface IRequest {
   page: number;

@@ -6,8 +6,8 @@ import {
   RequireFields,
   Resolver,
   ResolverTypeWrapper,
-} from "../../generated/types.mjs";
-import getPosts from "../../models/post/get_posts.model.mjs";
+} from "../../generated/types.js";
+import getPosts from "../../models/post/get_posts.model.js";
 
 const getPostsController: Resolver<
   ResolverTypeWrapper<PostsRespose>,

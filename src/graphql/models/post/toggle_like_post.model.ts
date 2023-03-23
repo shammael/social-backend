@@ -1,5 +1,5 @@
-import IPost, { TLikeReaction } from "../../../interfaces/post";
-import { PostModel } from "../../../services/models";
+import IPost, { TLikeReaction } from "../../../interfaces/post.js";
+import { PostModel } from "../../../services/models/index.js";
 
 interface IRequest {
   postdata: Pick<IPost, "userID"> & { reaction?: TLikeReaction | null };

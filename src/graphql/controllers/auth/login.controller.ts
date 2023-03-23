@@ -1,4 +1,4 @@
-import password_encrypter from "../../../utils/password_encrypter";
+import password_encrypter from "../../../utils/password_encrypter/index.js";
 import {
   ErrorName,
   LoginResponse,
@@ -6,11 +6,12 @@ import {
   RequireFields,
   Resolver,
   ResolverTypeWrapper,
-} from "../../generated/types.mjs";
-import getUserModel from "../../models/user/getUserModel.mjs";
-import token from "../../../utils/Token/index.mjs";
-import authModel from "../../models/auth/auth.mjs";
-import ExpressContext from "../../../interfaces/context";
+} from "../../generated/types.js";
+import getUserModel from "../../models/user/getUserModel.js";
+import token from "../../../utils/Token/index.js";
+import authModel from "../../models/auth/auth.js";
+import ExpressContext from "../../../interfaces/context.js";
+import { GraphQLError } from "graphql";
 
 const loginController: Resolver<
   ResolverTypeWrapper<LoginResponse>,
@@ -23,41 +24,32 @@ const loginController: Resolver<
   { res, req }
 ): Promise<LoginResponse> => {
   const user = await getUserModel({ email });
+  console.log(user);
   if (!user) {
-    return {
-      __typename: "BadRequestError",
-      code: 400,
-      message: "Bad Request",
-      name: ErrorName.Badrequest,
-      messages: [
-        {
-          field: "email",
-          message: "User not found",
-        },
-      ],
-    };
+    throw new GraphQLError("Account not found", {
+      extensions: {
+        code: "403",
+        field: "Email",
+      },
+    });
   }
 
   const valid = await password_encrypter.compare(password, user.password!);
 
   if (!valid) {
-    return {
-      __typename: "BadRequestError",
-      code: 400,
-      message: "Bad Request",
-      name: ErrorName.Badrequest,
-      messages: [
-        {
-          field: "email",
-          message: "User not found",
-        },
-      ],
-    };
+    throw new GraphQLError("Incorrect password ", {
+      extensions: {
+        code: "401",
+        field: "Password",
+      },
+    });
   }
 
   const access_token = token.sign({ id: user._id }, process.env.ACCESS_TOKEN!, {
     expiresIn: "24h",
   });
+
+  console.log({ access_token });
 
   const refresh_token = token.sign(
     { id: user._id },

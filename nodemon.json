@@ -1,6 +1,6 @@
 {
   "watch": ["src"],
-  "ext": "ts,json,graphql",
+  "ext": "json,graphql, ts, js",
   "ignore": ["src/**/*.spec.ts"],
-  "exec": "SET NODE_ENV=development & ts-node --files --esm --experimental-specifier-resolution=node ./src/index.mts"
+  "exec": "SET NODE_ENV=development & ts-node --files --esm --experimental-specifier-resolution=node ./src/index.ts"
 }

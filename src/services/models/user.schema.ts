@@ -7,16 +7,23 @@ import {
   Model,
 } from "mongoose";
 import mongoosePaginate from "mongoose-paginate-v2";
-import { IUser } from "../../interfaces";
-import checkID from "../utils/checkID";
+import { User } from "../../graphql/generated/types.js";
+import checkID from "../utils/checkID.js";
 
-interface IUserDocument extends Document, Omit<IUser, "_id"> {}
+interface IUserDocument
+  extends Document,
+    Omit<
+      User & { password: string; active?: boolean; token?: string },
+      "_id"
+    > {}
 
 interface IUserModel extends Model<IUserDocument> {
   validID: (id: string) => boolean;
 }
 
-const UserSchema = new Schema<IUser>(
+const UserSchema = new Schema<
+  User & { password: string; active: boolean; token?: string }
+>(
   {
     firstName: {
       required: true,
@@ -35,21 +42,11 @@ const UserSchema = new Schema<IUser>(
       unique: true,
       required: true,
     },
-    impressions: {
-      type: Number,
-      default: 0,
-      required: true,
-    },
     location: {
       type: String,
     },
     occupation: {
       type: String,
-    },
-    viewedProfile: {
-      type: Number,
-      default: 0,
-      required: true,
     },
     password: {
       type: String,

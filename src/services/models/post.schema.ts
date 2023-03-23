@@ -1,7 +1,7 @@
 import mongoose, { Document, PaginateModel, Schema, Types } from "mongoose";
 
 import paginate from "mongoose-paginate-v2";
-import IPost from "../../interfaces/post";
+import IPost from "../../interfaces/post.js";
 
 interface PostDocument extends Document, Omit<IPost, "_id"> {}
 

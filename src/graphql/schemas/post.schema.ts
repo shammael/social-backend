@@ -1,8 +1,6 @@
-scalar Date
+const postSchema = `#graphql
 
-union PostRespose = Post | BadRequestError | InternalServerError
-union PostsRespose = PostList | InternalServerError
-union ToogleLikeResponse = ToggleLike | BadRequestError | InternalServerError
+scalar Date
 
 enum PostStatus {
   pending
@@ -68,11 +66,15 @@ type Post {
 }
 
 type Query {
-  posts(input: GetPostsInput!): PostsRespose!
-  post(id: ID!): PostRespose!
+  posts(input: GetPostsInput!): PostList!
+  post(id: ID!): Post!
 }
 
 type Mutation {
-  deletePost(id: ID!): PostRespose!
-  toggleLikePost(input: ToggleLikePostInput!): ToogleLikeResponse!
+  deletePost(id: ID!): Post!
+  toggleLikePost(input: ToggleLikePostInput!): ToggleLike!
 }
+
+`;
+
+export default postSchema;

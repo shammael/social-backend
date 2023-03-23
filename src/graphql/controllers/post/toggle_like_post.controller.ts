@@ -1,5 +1,5 @@
-import ExpressContext from "../../../interfaces/context";
-import ErrorMessage from "../../generated/error_message.types.mjs";
+import ExpressContext from "../../../interfaces/context.js";
+import ErrorMessage from "../../generated/error_message.types.js";
 import {
   ErrorName,
   MutationToggleLikePostArgs,
@@ -7,8 +7,8 @@ import {
   Resolver,
   ResolverTypeWrapper,
   ToogleLikeResponse,
-} from "../../generated/types.mjs";
-import likePostModel from "../../models/post/toggle_like_post.model.mjs";
+} from "../../generated/types.js";
+import likePostModel from "../../models/post/toggle_like_post.model.js";
 
 const toggleLikePostController: Resolver<
   ResolverTypeWrapper<ToogleLikeResponse>,

@@ -3,7 +3,7 @@ import {
   GraphQLScalarType,
   GraphQLScalarTypeConfig,
 } from "graphql";
-import ExpressContext from "../../interfaces/context";
+import ExpressContext from "../../interfaces/context.js";
 
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;

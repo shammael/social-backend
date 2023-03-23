@@ -1,1 +1,1 @@
-export { default as verifyTokenMiddleware } from "./verify_token.middleware";
+export { default as verifyTokenMiddleware } from "./verify_token.middleware.js";

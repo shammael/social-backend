@@ -1,1 +1,1 @@
-export { default as checkID } from "./checkID";
+export { default as checkID } from "./checkID.js";

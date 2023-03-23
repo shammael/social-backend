@@ -1,3 +1,5 @@
+const authSchema = `#graphql
+
 scalar Email
 scalar Token
 
@@ -6,7 +8,7 @@ input loginInput {
   password: String!
 }
 
-type LoginData {
+type LoginResponse {
   user: User!
   token: Token!
 }
@@ -15,11 +17,11 @@ type Logout {
   message: String
 }
 
-union LoginResponse = LoginData | BadRequestError | InternalServerError
-
-union LogoutResponse = Logout | ForbiddenError | InternalServerError
-
 type Mutation {
   login(input: loginInput!): LoginResponse!
-  logout(id: ID!): LogoutResponse!
+  logout(id: ID!): Logout!
 }
+
+`;
+
+export default authSchema;
